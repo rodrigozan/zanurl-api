@@ -23,18 +23,23 @@ export class UrlConverterService {
     }
 
     // Método para buscar as URLs
-    static async findUrls() {
+    static async findUrl(id: string) {
+        let urls;
         try {
             // Aqui você deve conectar ao banco, se ainda não estiver conectado
             await this.initialize();
             // Aqui você substituiria por sua lógica de busca no MongoDB
-            const urls = await UrlModel.find();
+            urls = await UrlModel.findById(id);
             return urls;
         } catch (error) {
             console.error('Error fetching URLs', error);
+            urls = null;
+        } finally {
+            await this.terminate();
         }
-        await this.terminate();
+        return urls;
     }
+    
 
     // Método para desconectar do banco de dados
     static async terminate() {

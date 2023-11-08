@@ -1,10 +1,6 @@
 import mongoose from "mongoose";
 
 const urlSchema = new mongoose.Schema({
-    id: {
-        type: String,
-        required: true
-    },
     originalUrl: {
         type: String,
         required: true
@@ -15,7 +11,7 @@ const urlSchema = new mongoose.Schema({
     },
     userName: {
         type: String,
-        required: true
+        required: false
     }
 }, {
     timestamps: true
