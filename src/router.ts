@@ -1,12 +1,12 @@
 import { Router } from 'express';
 
-import url_converter from './controllers/url_converter';
+import UrlConverterController from './controllers/UrlConverterController';
 
 // Create a new router instance
 const router = Router();
 
-// Assign the url_converter controller to the 'controller' variable
-const controller = url_converter;
+// Assign the UrlConverterController controller to the 'controller' variable
+const controller = UrlConverterController;
 
 // Define a POST route for shortening URLs
 router.post('/', controller.shorten)
