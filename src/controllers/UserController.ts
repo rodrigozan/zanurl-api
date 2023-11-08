@@ -4,7 +4,7 @@ import { UserService } from '../services/UserService';
 
 const userService = new UserService();
 
-export class UserController {
+class UserController {
     public async createUser(req: Request, res: Response) {
         try {
             const user = await userService.createUser(req.body);
@@ -59,3 +59,5 @@ export class UserController {
         }
     }
 }
+
+export default new UserController();
