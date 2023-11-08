@@ -10,16 +10,17 @@ export class UrlConverterService {
     // Método para salvar a URL e a URL convertida
     static async saveUrl(originalUrl: string, convertedUrl: string) {
         try {
-            // Aqui você deve conectar ao banco, se ainda não estiver conectado
             await this.initialize();
-            // Aqui você substituiria por sua lógica de inserção no MongoDB
+            
             const urlEntry = new UrlModel({ originalUrl, convertedUrl });
             await urlEntry.save();
             console.log('URL saved successfully');
         } catch (error) {
             console.error('Error saving the URL', error);
+        } finally {
+            await this.terminate();
         }
-        await this.terminate();
+        
     }
 
     // Método para buscar as URLs
@@ -36,7 +37,7 @@ export class UrlConverterService {
             urls = null;
         } finally {
             await this.terminate();
-        }
+        } 
         return urls;
     }
     
