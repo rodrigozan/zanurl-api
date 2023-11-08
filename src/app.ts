@@ -1,8 +1,14 @@
 // Importing express library
 import express from "express";
 
+// Import the dotenv package
+import dotenv from "dotenv";
+
 // Importing router module
 import router from "./router";
+
+// Load the environment variables from the .env file
+dotenv.config()
 
 // App class to create and configure the express application
 export class App {
