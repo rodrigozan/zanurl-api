@@ -10,7 +10,7 @@ dotenv.config()
 export class Connection {
     static async connect() {
         try {
-            await mongoose.connect(process.env.DB_URI ?? 'mongodb+srv://rodzan:88go4eY8aEwDymZ0@cluster0.lgovzsr.mongodb.net/');
+            await mongoose.connect(process.env.DB_URI as string);
             console.log("Database connected");
         } catch (error) {
             console.error("Database connection error", error);

@@ -5,7 +5,11 @@ const urlSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    url: {
+    originalUrl: {
+        type: String,
+        required: true
+    },
+    convertedUrl: {
         type: String,
         required: true
     },
@@ -17,4 +21,6 @@ const urlSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('Url', urlSchema, 'urls');
+const UrlModel = mongoose.model('Url', urlSchema, 'urls');
+
+export default UrlModel;
