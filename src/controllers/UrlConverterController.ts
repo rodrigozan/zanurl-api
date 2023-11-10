@@ -1,7 +1,10 @@
 import { Request, Response } from 'express';
 import shortid from 'shortid';
+import dotenv from 'dotenv';
 
 import { UrlConverterService } from '../services/UrlConverterService';
+
+dotenv.config();
 
 const service = UrlConverterService;
 
@@ -18,7 +21,7 @@ class UrlConverter {
     if (!url) { return res.status(400).json({ error: 'URL not provided' }); }
 
     const id = shortid.generate();
-    const shortUrl = `http://localhost:4000/${id}`;
+    const shortUrl = `/${id}`;
 
     await service.saveUrl(url, shortUrl);
 
